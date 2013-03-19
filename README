@@ -1,0 +1,13 @@
+JADIV - Just Another Debug Image Visualizer
+===========================================
+
+Installation
+------------
+1) Build the project
+2) Copy the DLL to <Your Visual Studio install path>/Common7/Packages/Debugger/Visualizers
+
+Usage
+-----
+
+When debugging a application, hover your mouse over a System.Drawing.Image instance.
+Click the small magnifying glass icon to open the visualizer.
