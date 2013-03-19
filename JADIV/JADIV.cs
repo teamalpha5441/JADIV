@@ -23,7 +23,7 @@ namespace TEAM_ALPHA.JADIV
             form.ClientSize = CalculateSize(image.Size, new Size(300, 300));
             form.BackgroundImage = CreateChessPattern(new Size(18, 18), Color.White, Color.LightGray);
             PictureBox pb = new PictureBox();
-            pb.Image = image;
+            pb.Image = (Image)image.Clone();
             pb.Parent = form;
             pb.Dock = DockStyle.Fill;
             pb.SizeMode = PictureBoxSizeMode.Zoom;
