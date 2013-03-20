@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JADIV", "JADIV\JADIV.csproj", "{F0D1D546-F566-4716-B37E-FC27FE12C0A4}"
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JADIV", "JADIV.csproj", "{F0D1D546-F566-4716-B37E-FC27FE12C0A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
