@@ -4,13 +4,13 @@ using System.Windows.Forms;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
 [assembly: System.Diagnostics.DebuggerVisualizer(
-    typeof(TEAM_ALPHA.JADIV.JADIV),
+    typeof(TA.JADIV.JADIV),
     typeof(VisualizerObjectSource),
     Target = typeof(Bitmap),
     Description = "JADIV"
 )]
 
-namespace TEAM_ALPHA.JADIV
+namespace TA.JADIV
 {
     public class JADIV : DialogDebuggerVisualizer
     {

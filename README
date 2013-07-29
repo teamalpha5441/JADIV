@@ -10,4 +10,4 @@ Usage
 -----
 
 When debugging a application, hover your mouse over a System.Drawing.Image instance.
-Click the small magnifying glass icon to open the visualizer.
+Click the small magnifying glass to open the visualizer.
