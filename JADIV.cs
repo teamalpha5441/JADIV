@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Drawing;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.DebuggerVisualizers;
 
-[assembly: System.Diagnostics.DebuggerVisualizer(
+[assembly: DebuggerVisualizer(
     typeof(TA.JADIV.JADIV),
     typeof(VisualizerObjectSource),
     Target = typeof(Bitmap),
@@ -21,7 +22,7 @@ namespace TA.JADIV
             form.Text = string.Format("JADIV - {0}x{1} {2} PaletteEntries: {3}", image.Width, image.Height, image.PixelFormat.ToString(), image.Palette.Entries.Length);
             form.FormBorderStyle = FormBorderStyle.SizableToolWindow;
             form.ClientSize = CalculateSize(image.Size, new Size(300, 300));
-            form.BackgroundImage = CreateChessPattern(new Size(18, 18), Color.White, Color.LightGray);
+            form.BackgroundImage = CreateChessPattern(9, Color.White, Color.LightGray);
             PictureBox pb = new PictureBox();
             pb.Image = (Image)image.Clone();
             pb.Parent = form;
@@ -40,20 +41,17 @@ namespace TA.JADIV
             );
         }
 
-        private Bitmap CreateChessPattern(Size Size, Color Color1, Color Color2)
+        private Bitmap CreateChessPattern(byte Size, Color Color1, Color Color2)
         {
-            if (Size.Width % 2 > 0 || Size.Height % 2 > 0)
-                throw new ArgumentException("Only even size possible");
-            Bitmap chess = new Bitmap(Size.Width, Size.Height);
+            Bitmap chess = new Bitmap(Size, Size);
             Brush Brush1 = new SolidBrush(Color1);
             Brush Brush2 = new SolidBrush(Color2);
-            Size = new Size(Size.Width / 2, Size.Height / 2);
             using (Graphics g = Graphics.FromImage(chess))
             {
-                g.FillRectangle(Brush1, 0, 0, Size.Width, Size.Height);
-                g.FillRectangle(Brush1, Size.Width, Size.Height, Size.Width, Size.Height);
-                g.FillRectangle(Brush2, Size.Width, 0, Size.Width, Size.Height);
-                g.FillRectangle(Brush2, 0, Size.Height, Size.Width, Size.Height);
+                g.FillRectangle(Brush1, 0, 0, Size, Size);
+                g.FillRectangle(Brush1, Size, Size, Size, Size);
+                g.FillRectangle(Brush2, Size, 0, Size, Size);
+                g.FillRectangle(Brush2, 0, Size, Size, Size);
             }
             return chess;
         }
